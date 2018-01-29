@@ -4,6 +4,7 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { PostComponent } from './post/post.component';
+import { GetDataService } from './get-data.service';
 
 
 @NgModule({
@@ -15,7 +16,7 @@ import { PostComponent } from './post/post.component';
     BrowserModule,
     HttpModule
   ],
-  providers: [],
+  providers: [GetDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
