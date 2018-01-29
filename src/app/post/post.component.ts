@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/Observable';
 @Component({
     selector: "nb-post",
     template: `
-<input  (keyup.enter)="createActivity(title.value)" #title type="text"> {{ newId }} <br>
+input data and press enter <input  (keyup.enter)="createActivity(title.value)" #title type="text"> {{ newId }} <br>
 <table>
 <tr>
   <th>id</th>
@@ -31,7 +31,7 @@ import { Observable } from 'rxjs/Observable';
 })
 export class PostComponent implements OnInit {
     
-    public activities$: Observable<any>;
+    public activities$: Observable<any[]>;
     public activity$: Observable<any>;
     newId:string;
     constructor(private getDataServ: GetDataService) { }
@@ -52,10 +52,5 @@ export class PostComponent implements OnInit {
   
   getActivity(param: any) {
     this.activity$ = this.getDataServ.getActivity(param.id);
-
-  }  
-
-  showActivity(param:any){
-    alert(param.id + " " + param.title);
   }
 }

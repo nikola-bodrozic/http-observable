@@ -11,14 +11,14 @@ export class GetDataService {
     ) {}
     
     // GET request
-    public getActivities(): Observable<any> {
+    public getActivities(): Observable<any[]> {
         return this.http.get('http://localhost/i2.php')
             .map(res => res.json()['files']);
     }
     
     // GET request with id
     public getActivity(id: any): Observable<any> {
-      return this.http.get('http://localhost/i3.php')
+      return this.http.get('http://localhost/i3.php?id='+id)
           .map(res => res.json()['files']);
     }
 
