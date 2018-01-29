@@ -15,6 +15,12 @@ export class GetDataService {
         return this.http.get('http://localhost/i2.php')
             .map(res => res.json()['files']);
     }
+    
+    // GET request with id
+    public getActivity(id: any): Observable<any> {
+      return this.http.get('http://localhost/i3.php')
+          .map(res => res.json()['files']);
+    }
 
     // POST request with JSON in HTTP body
     public createActivity(post) {

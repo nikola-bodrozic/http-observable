@@ -13,15 +13,26 @@ import { Observable } from 'rxjs/Observable';
 </tr>
 <tr *ngFor="let item of activities$ | async">
   <td>{{item.id}}</td>
-  <td><button (click)="showActivity(item)">Show Activity</button></td>
+  <td><button (click)="getActivity(item)">Show Activity</button></td>
 </tr>
 </table>
 
+<table>
+<tr>
+  <th>id</th>
+  <th>title</th>
+</tr>
+<tr *ngFor="let item of activity$ | async">
+  <td> {{item.id}} </td>
+  <td> {{item.title}} </td>
+</tr>
+</table>
   `
 })
 export class PostComponent implements OnInit {
     
     public activities$: Observable<any>;
+    public activity$: Observable<any>;
     newId:string;
     constructor(private getDataServ: GetDataService) { }
     
@@ -38,6 +49,11 @@ export class PostComponent implements OnInit {
         this.newId = post['id']; 
       }  );
   }    
+  
+  getActivity(param: any) {
+    this.activity$ = this.getDataServ.getActivity(param.id);
+
+  }  
 
   showActivity(param:any){
     alert(param.id + " " + param.title);
