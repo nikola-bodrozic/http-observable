@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
       <h1 class="red">
         Welcome to {{title}}!
       </h1>
+      <nb-post></nb-post>
   `,
   styles: [`
       .red{
